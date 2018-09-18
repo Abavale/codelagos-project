@@ -1,0 +1,58 @@
+print('''
+
+                                THIS IS A SHOPPING LIST PROGRAM
+                                --------------------------------
+''')
+
+shop_list = {}
+
+print ('''
+
+PROGRAM OPTIONS
+---------------
+1: ADD NEW ITEM TO THE BASKET
+2: REMOVE ITEM FROM THE BASKET
+3: VIEW ITEMS IN THE LIST
+0: CLOSE OR END THE PROGRAM
+
+''')
+
+
+option = int(input('PLEASE SELECT AND OPTION: '))
+
+while option != 0:
+        if option == 1:
+            item = input("Please Enter an Item: ")
+            if item in shop_list:
+                add_item = input(print ('DO YOU WANT TO ADD TO ITEM? YES OR NO PLEASE'))
+                if add_item == ("yes" or "YES"):
+                    quantity = int(input("Please Enter the Quantity of the Item: "))
+                    shop_list[item] += quantity
+                else:
+                    print()
+
+            quantity = int(input("Please Enter the Quantity of the Item: "))
+            shop_list[item] = quantity
+
+        elif option == 2:
+            item = input("Please Enter an Item: ")
+            if item in shop_list:
+                del (shop_list[item])
+            else:
+                print ('item not in SHOPPING LIST')
+
+        elif option == 3:
+            for item in shop_list:
+                 print (item, ': ',shop_list[item])
+
+        elif option > 3:
+            print ('''
+                             [INVALID OPTION]
+                 --->PLEASE SELECT FROM THE OPTIONS ABOVE<---
+            ''')
+
+
+        option = int(input('\n\nPLEASE SELECT AN OPTION: '))
+
+else:
+    print ("PROGRAM CLOSED")
